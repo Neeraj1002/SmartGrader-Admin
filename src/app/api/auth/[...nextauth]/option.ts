@@ -10,7 +10,7 @@ export const options: NextAuthOptions = {
         username: { label: 'Username', type: 'text' },
         password: { label: 'Password', type: 'password' }
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         const url = 'https://api.smartgrader.in/login'
 
         console.log('Credentials provided:', credentials)
