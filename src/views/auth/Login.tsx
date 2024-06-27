@@ -82,8 +82,6 @@ const Login = () => {
         }
       } else {
         router.push('/') // Redirect on successful login
-
-        setIsLoading(false)
       }
     } catch (error) {
       console.error('Error during form submission:', error)
