@@ -11,10 +11,9 @@ import { IconContext } from 'react-icons'
 import Typography from '@mui/material/Typography'
 import Chip from '@mui/material/Chip'
 
-
 // Styles Imports
 import tableStyles from '@core/styles/table.module.css'
-import {  UserDataType } from '@/types/pages/tableBodyRowType'
+import { UserDataType } from '@/types/pages/tableBodyRowType'
 
 interface TableProps {
   TableData: UserDataType[]
@@ -22,8 +21,7 @@ interface TableProps {
 }
 
 const Table: React.FC<TableProps> = ({ TableData, page }) => {
-
-  const PageName = page.charAt(0).toUpperCase() + page.slice(1);
+  const PageName = page.charAt(0).toUpperCase() + page.slice(1)
 
   return (
     <div className='overflow-x-auto'>
@@ -62,8 +60,8 @@ const Table: React.FC<TableProps> = ({ TableData, page }) => {
                 <Chip
                   className='capitalize'
                   variant='tonal'
-                  color = {row.isVerified === false ?  'secondary' : 'success'}
-                  label = {row.isVerified ? 'Verified': 'Not Verified'}
+                  color={row.isVerified === false ? 'secondary' : 'success'}
+                  label={row.isVerified ? 'Verified' : 'Not Verified'}
                   size='small'
                 />
               </td>
