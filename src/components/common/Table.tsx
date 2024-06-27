@@ -13,7 +13,7 @@ import Chip from '@mui/material/Chip'
 
 // Styles Imports
 import tableStyles from '@core/styles/table.module.css'
-import { UserDataType } from '@/types/pages/tableBodyRowType'
+import type { UserDataType } from '@/types/pages/tableBodyRowType'
 
 interface TableProps {
   TableData: UserDataType[]
