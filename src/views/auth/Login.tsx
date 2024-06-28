@@ -102,7 +102,16 @@ const Login = () => {
                 Log In as Admin{' '}
               </Typography>
             </div>
-            <form noValidate autoComplete='off' onSubmit={validation.handleSubmit} className='flex flex-col gap-5'>
+            <form
+              noValidate
+              autoComplete='off'
+              onSubmit={e => {
+                e.preventDefault()
+                validation.handleSubmit()
+                return false
+              }}
+              className='flex flex-col gap-5'
+            >
               <FormControl>
                 <TextField
                   fullWidth
