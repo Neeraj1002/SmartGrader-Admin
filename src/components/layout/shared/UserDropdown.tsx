@@ -8,7 +8,7 @@ import type { MouseEvent } from 'react'
 import { useRouter } from 'next/navigation'
 
 //Next Auth
-import { signOut } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 
 // MUI Imports
 import { styled } from '@mui/material/styles'
@@ -37,6 +37,10 @@ const BadgeContentSpan = styled('span')({
 const UserDropdown = () => {
   // States
   const [open, setOpen] = useState(false)
+
+  //Session Data
+
+  const { data: session } = useSession()
 
   // Refs
   const anchorRef = useRef<HTMLDivElement>(null)
@@ -71,7 +75,7 @@ const UserDropdown = () => {
       >
         <Avatar
           ref={anchorRef}
-          alt='John Doe'
+          alt={`${session?.user?.name}`}
           src='/images/avatars/1.png'
           onClick={handleDropdownOpen}
           className='cursor-pointer bs-[38px] is-[38px]'
@@ -96,10 +100,10 @@ const UserDropdown = () => {
               <ClickAwayListener onClickAway={e => handleDropdownClose(e as MouseEvent | TouchEvent)}>
                 <MenuList>
                   <div className='flex items-center plb-2 pli-4 gap-2' tabIndex={-1}>
-                    <Avatar alt='John Doe' src='/images/avatars/1.png' />
+                    <Avatar alt={`${session?.user?.name}`} src='/images/avatars/1.png' />
                     <div className='flex items-start flex-col'>
                       <Typography className='font-medium' color='text.primary'>
-                        John Doe
+                        {session?.user?.name}
                       </Typography>
                       <Typography variant='caption'>Admin</Typography>
                     </div>
@@ -128,7 +132,7 @@ const UserDropdown = () => {
                       color='error'
                       size='small'
                       endIcon={<i className='ri-logout-box-r-line' />}
-                      onClick={() => signOut()}
+                      onClick={() => signOut({ callbackUrl: '/login' })}
                       sx={{ '& .MuiButton-endIcon': { marginInlineStart: 1.5 } }}
                     >
                       Logout

@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid'
 import Award from '@views/dashboard/Award'
 import TotalEarning from '@views/dashboard/TotalEarning'
 import DepositWithdraw from '@views/dashboard/DepositWithdraw'
+import UserView from '@/views/users/UserView'
 
 const DashboardAnalytics = () => {
   return (

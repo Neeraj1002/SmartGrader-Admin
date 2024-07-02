@@ -3,30 +3,27 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
+import Link from 'next/link'
+import { FiUsers } from 'react-icons/fi'
 
 const Award = () => {
   return (
     <Card>
       <CardContent className='flex flex-col gap-2 relative items-start'>
         <div>
-          <Typography variant='h5'>Congratulations John! 🎉</Typography>
-          <Typography>Best seller of the month</Typography>
+          <div className='flex gap-5'>
+            {<FiUsers color='#0ea5e9' size={70} />}
+            <Typography variant='h5'>Total Number of Users</Typography>
+          </div>
         </div>
         <div>
           <Typography variant='h4' color='primary'>
-            $42.8k
+            100
           </Typography>
-          <Typography>78% of target 🚀</Typography>
         </div>
-        <Button size='small' variant='contained'>
-          View Sales
+        <Button size='small' variant='contained' className='absolute inline-end-7 bottom-6'>
+          <Link href='/users'>View Users</Link>
         </Button>
-        <img
-          src='/images/pages/trophy.png'
-          alt='trophy image'
-          height={102}
-          className='absolute inline-end-7 bottom-6'
-        />
       </CardContent>
     </Card>
   )

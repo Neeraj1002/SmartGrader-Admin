@@ -4,6 +4,7 @@ import { useTheme } from '@mui/material/styles'
 
 // Third-party Imports
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import { FiUsers } from 'react-icons/fi'
 
 // Type Imports
 import type { VerticalMenuContextProps } from '@menu/components/vertical-menu/Menu'
@@ -66,13 +67,11 @@ const VerticalMenu = ({ scrollMenu }: { scrollMenu: (container: any, isPerfectSc
           icon={<i className='ri-home-smile-line' />}
           suffix={<Chip label='5' size='small' color='error' />}
         >
-          <MenuItem href={`${process.env.NEXT_PUBLIC_PRO_URL}/dashboards/crm`} target='_blank'>
+          <MenuItem href='/users' icon={<FiUsers color='#0ea5e9' />}>
             Users
           </MenuItem>
-          <MenuItem href='/'>Analytics</MenuItem>
-          <MenuItem href={`${process.env.NEXT_PUBLIC_PRO_URL}/dashboards/ecommerce`} target='_blank'>
-            Categories
-          </MenuItem>
+          <MenuItem href='/categories'>Categories</MenuItem>
+
           <MenuItem href={`${process.env.NEXT_PUBLIC_PRO_URL}/dashboards/academy`} target='_blank'>
             Sets
           </MenuItem>
