@@ -1,7 +1,8 @@
 'use client'
 
 //Third Party Lib Import
-import React, { FC } from 'react'
+import React from 'react'
+import type { FC } from 'react'
 
 import Link from 'next/link'
 
@@ -20,19 +21,17 @@ import {
   Select,
   Typography,
   FormHelperText,
-  Container,
+  Container
 } from '@mui/material'
-
 
 export interface UserDetailsTableProps {
   user: any
   hideControls: boolean
   disabled: boolean
-  mode?: 'add' | 'update'
 }
 
 const UserDetailsTable: FC<UserDetailsTableProps> = (props: UserDetailsTableProps) => {
-  const { user, hideControls, disabled, mode } = props
+  const { user, hideControls, disabled } = props
 
   const userData = useFormik({
     initialValues: user.userData,
@@ -43,7 +42,7 @@ const UserDetailsTable: FC<UserDetailsTableProps> = (props: UserDetailsTableProp
       role: Yup.string().required('User role is required'),
       isVerified: Yup.boolean().required('Verified is required')
     }),
-    onSubmit: values => {
+    onSubmit: () => {
       // onSubmit(values)
     }
   })
@@ -51,7 +50,11 @@ const UserDetailsTable: FC<UserDetailsTableProps> = (props: UserDetailsTableProp
   return (
     <Container maxWidth='xl'>
       <div className='h-full w-full'>
-        <Typography variant='h4' gutterBottom className='text-slate-500 font-semibold pl-3 pb-5 underline decoration-4 decoration-cyan-500'>
+        <Typography
+          variant='h4'
+          gutterBottom
+          className='text-slate-500 font-semibold pl-3 pb-5 underline decoration-4 decoration-cyan-500'
+        >
           User Details
         </Typography>
         <Container className='mt-20'>
@@ -68,7 +71,7 @@ const UserDetailsTable: FC<UserDetailsTableProps> = (props: UserDetailsTableProp
                   disabled={disabled}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}  className='py-4'>
+              <Grid item xs={12} sm={6} className='py-4'>
                 <TextField
                   fullWidth
                   label='User Name'
@@ -79,7 +82,7 @@ const UserDetailsTable: FC<UserDetailsTableProps> = (props: UserDetailsTableProp
                   disabled={disabled}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}  className='py-4'>
+              <Grid item xs={12} sm={6} className='py-4'>
                 <TextField
                   fullWidth
                   label='Email'
@@ -90,12 +93,11 @@ const UserDetailsTable: FC<UserDetailsTableProps> = (props: UserDetailsTableProp
                   disabled={disabled}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}  className='py-4'>
+              <Grid item xs={12} sm={6} className='py-4'>
                 <FormControl
                   fullWidth
                   variant='outlined'
                   error={userData.touched.role && Boolean(userData.errors.role)}
-                  
                 >
                   <InputLabel>Role</InputLabel>
                   <Select
@@ -116,7 +118,7 @@ const UserDetailsTable: FC<UserDetailsTableProps> = (props: UserDetailsTableProp
                   ) : null}
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={6}  className='py-4'>
+              <Grid item xs={12} sm={6} className='py-4'>
                 <span className='text-gray-600 font-spline '>Verify</span>
                 <Checkbox
                   title='verified'
@@ -140,10 +142,10 @@ const UserDetailsTable: FC<UserDetailsTableProps> = (props: UserDetailsTableProp
                       Save
                     </Button>
                     <Button variant='text'>
-                        <Link href='/users' passHref className='link'>
+                      <Link href='/users' passHref className='link'>
                         Cancel
-                        </Link>
-                      </Button>
+                      </Link>
+                    </Button>
                   </div>
                 )}
               </Grid>

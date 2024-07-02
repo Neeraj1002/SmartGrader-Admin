@@ -1,5 +1,5 @@
 //Thrid Party Lib Imports
-import React, { FC } from 'react'
+import React from 'react'
 
 //MUI Imports
 import { Card, CardContent, CardHeader, Container } from '@mui/material'
@@ -7,20 +7,20 @@ import { Card, CardContent, CardHeader, Container } from '@mui/material'
 //LOcal Imports
 import UserDetailsTable from './UserDetailsTable'
 
-interface userDetails {
-  // Define the structure of your user data type here
-  id: number
-  firstName: string
-  lastName: string
-  username: string
-  email: string
-  phoneNumber: string
-  userRole: string
-  department: string
-  enabledFor2FA: boolean
-  accounting: boolean
-  active: boolean
-}
+// interface userDetails {
+//   // Define the structure of your user data type here
+//   id: number
+//   firstName: string
+//   lastName: string
+//   username: string
+//   email: string
+//   phoneNumber: string
+//   userRole: string
+//   department: string
+//   enabledFor2FA: boolean
+//   accounting: boolean
+//   active: boolean
+// }
 
 const UserView = (userData: any) => {
   return (

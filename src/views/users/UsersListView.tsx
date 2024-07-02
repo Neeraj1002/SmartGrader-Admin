@@ -11,9 +11,7 @@ import { Card, CardHeader, CardContent, Container, Button } from '@mui/material'
 //Local Imports
 import Table from '../../components/common/Table'
 import Search from '@/components/common/Search'
-import {  UserDataType } from '@/types/pages/tableBodyRowType'
-
-
+import type { UserDataType } from '@/types/pages/tableBodyRowType'
 
 const UserData: UserDataType[] = [
   {
@@ -146,39 +144,36 @@ const UserData: UserDataType[] = [
   }
 ]
 
-
 const UsersListView = () => {
-  
   const searchQuery = ''
 
-  const updateSearchQuery = (newQuery: string) => {
+  const updateSearchQuery = () => {
     console.log('searchQuery')
   }
 
   return (
-
-    <Container className='mt-5' maxWidth="xl">
-    <Card> 
-      <CardHeader title='User List' />
-      <CardContent className='flex items-center mb-5 p-4 bg-slate-100 mx-5 rounded-md'>
-        <div className='w-full h-full flex items-center justify-between'>
-          <div className='w-3/5'>
-            <Search value={searchQuery} onChange={updateSearchQuery} />
+    <Container className='mt-5' maxWidth='xl'>
+      <Card>
+        <CardHeader title='User List' />
+        <CardContent className='flex items-center mb-5 p-4 bg-slate-100 mx-5 rounded-md'>
+          <div className='w-full h-full flex items-center justify-between'>
+            <div className='w-3/5'>
+              <Search value={searchQuery} onChange={updateSearchQuery} />
+            </div>
+            <div className='h-full p-0 m-0'>
+              <Button variant='contained'>
+                <Link href='/users/add' passHref className='btn-link'>
+                  Add User
+                </Link>
+              </Button>
+            </div>
           </div>
-          <div className='h-full p-0 m-0'>
-          <Button variant='contained'>
-            <Link href='/users/add' passHref className='btn-link'>
-            Add User
-            </Link>
-          </Button>
-          </div>
-        </div>
-      </CardContent>
-      {/* <Header></Header> */}
-      <CardContent className='rounded-lg'>
-        <Table TableData = {UserData} page = 'user'/>
-      </CardContent>
-    </Card>
+        </CardContent>
+        {/* <Header></Header> */}
+        <CardContent className='rounded-lg'>
+          <Table TableData={UserData} page='user' />
+        </CardContent>
+      </Card>
     </Container>
   )
 }
